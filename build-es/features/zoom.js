@@ -134,8 +134,8 @@ export function fitSelection(value, selectionSVGPointX, selectionSVGPointY, sele
   }), ACTION_ZOOM);
 }
 export function fitToViewer(value) {
-  var SVGAlignX = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ALIGN_CENTER;
-  var SVGAlignY = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : ALIGN_CENTER;
+  var SVGAlignX = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ALIGN_LEFT;
+  var SVGAlignY = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : ALIGN_TOP;
   var SVGMinX = value.SVGMinX,
     SVGMinY = value.SVGMinY,
     SVGWidth = value.SVGWidth,
