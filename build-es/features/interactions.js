@@ -39,6 +39,7 @@ export function onMouseDown(event, ViewerDOM, tool, value, props) {
   return nextValue;
 }
 export function onMouseMove(event, ViewerDOM, tool, value, props) {
+  var _props$toolbarProps, _props$toolbarProps2;
   var coords = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
   var _ref2 = coords || getMousePosition(event, ViewerDOM),
     x = _ref2.x,
@@ -47,7 +48,7 @@ export function onMouseMove(event, ViewerDOM, tool, value, props) {
   var nextValue = value;
   switch (tool) {
     case TOOL_ZOOM_IN:
-      if (value.mode === MODE_ZOOMING) nextValue = forceExit ? stopZooming(value, x, y, props.scaleFactor) : updateZooming(value, x, y);
+      if (value.mode === MODE_ZOOMING) nextValue = forceExit ? stopZooming(value, x, y, props.scaleFactor, (_props$toolbarProps = props.toolbarProps) === null || _props$toolbarProps === void 0 ? void 0 : _props$toolbarProps.SVGAlignX, (_props$toolbarProps2 = props.toolbarProps) === null || _props$toolbarProps2 === void 0 ? void 0 : _props$toolbarProps2.SVGAlignY) : updateZooming(value, x, y);
       break;
     case TOOL_AUTO:
     case TOOL_PAN:
@@ -60,21 +61,18 @@ export function onMouseMove(event, ViewerDOM, tool, value, props) {
   return nextValue;
 }
 export function onMouseUp(event, ViewerDOM, tool, value, props) {
-  var _props$toolbarProps;
+  var _props$toolbarProps3, _props$toolbarProps4, _props$toolbarProps5, _props$toolbarProps6;
   var coords = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
   var _ref3 = coords || getMousePosition(event, ViewerDOM),
     x = _ref3.x,
     y = _ref3.y;
   var nextValue = value;
-  console.log("PROPS", props);
-  console.log("PROPS toolbar", props === null || props === void 0 ? void 0 : props.toolbarProps);
-  console.log("PROPS align", props === null || props === void 0 ? void 0 : (_props$toolbarProps = props.toolbarProps) === null || _props$toolbarProps === void 0 ? void 0 : _props$toolbarProps.SVGAlignX);
   switch (tool) {
     case TOOL_ZOOM_OUT:
-      if (value.mode === MODE_ZOOMING) nextValue = stopZooming(value, x, y, 1 / props.scaleFactor, props.toolbarProps.SVGAlignX, toolbarProps.SVGAlignY);
+      if (value.mode === MODE_ZOOMING) nextValue = stopZooming(value, x, y, 1 / props.scaleFactor, (_props$toolbarProps3 = props.toolbarProps) === null || _props$toolbarProps3 === void 0 ? void 0 : _props$toolbarProps3.SVGAlignX, (_props$toolbarProps4 = props.toolbarProps) === null || _props$toolbarProps4 === void 0 ? void 0 : _props$toolbarProps4.SVGAlignY);
       break;
     case TOOL_ZOOM_IN:
-      if (value.mode === MODE_ZOOMING) nextValue = stopZooming(value, x, y, props.scaleFactor, props.toolbarProps.SVGAlignX, toolbarProps.SVGAlignY);
+      if (value.mode === MODE_ZOOMING) nextValue = stopZooming(value, x, y, props.scaleFactor, (_props$toolbarProps5 = props.toolbarProps) === null || _props$toolbarProps5 === void 0 ? void 0 : _props$toolbarProps5.SVGAlignX, (_props$toolbarProps6 = props.toolbarProps) === null || _props$toolbarProps6 === void 0 ? void 0 : _props$toolbarProps6.SVGAlignY);
       break;
     case TOOL_AUTO:
     case TOOL_PAN:
