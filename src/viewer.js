@@ -138,11 +138,6 @@ export default class ReactSVGPanZoom extends React.Component {
       needUpdate = true;
     }
 
-    console.log("update");
-    if (prevProps.children !== props.children) {
-        console.log("CHILDREN");
-    }
-
     if (needUpdate) {
       this.setValue(nextValue);
     }

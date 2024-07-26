@@ -2709,10 +2709,6 @@ var ReactSVGPanZoom = /*#__PURE__*/function (_React$Component) {
         nextValue = (0, _common.setZoomLevels)(nextValue, props.scaleFactorMin, props.scaleFactorMax);
         needUpdate = true;
       }
-      console.log("update");
-      if (prevProps.children !== props.children) {
-        console.log("CHILDREN");
-      }
       if (needUpdate) {
         this.setValue(nextValue);
       }
