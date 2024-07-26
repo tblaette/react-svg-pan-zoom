@@ -26,8 +26,7 @@
     "build-commonjs",
     "build-es",
     "build-umd",
-    "src",
-    "bla.txt"
+    "src"
   ],
   "repository": {
     "type": "git",
