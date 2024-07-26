@@ -720,7 +720,7 @@ function onMouseMove(event, ViewerDOM, tool, value, props) {
   var nextValue = value;
   switch (tool) {
     case _constants.TOOL_ZOOM_IN:
-      if (value.mode === _constants.MODE_ZOOMING) nextValue = forceExit ? (0, _zoom.stopZooming)(value, x, y, props.scaleFactor, props.toolbarProps.SVGAlignX, toolbarProps.SVGAlignY) : (0, _zoom.updateZooming)(value, x, y);
+      if (value.mode === _constants.MODE_ZOOMING) nextValue = forceExit ? (0, _zoom.stopZooming)(value, x, y, props.scaleFactor) : (0, _zoom.updateZooming)(value, x, y);
       break;
     case _constants.TOOL_AUTO:
     case _constants.TOOL_PAN:
@@ -738,6 +738,7 @@ function onMouseUp(event, ViewerDOM, tool, value, props) {
     x = _ref3.x,
     y = _ref3.y;
   var nextValue = value;
+  console.log("PROPS", props);
   switch (tool) {
     case _constants.TOOL_ZOOM_OUT:
       if (value.mode === _constants.MODE_ZOOMING) nextValue = (0, _zoom.stopZooming)(value, x, y, 1 / props.scaleFactor, props.toolbarProps.SVGAlignX, toolbarProps.SVGAlignY);
