@@ -62,11 +62,15 @@ var UncontrolledReactSVGPanZoom = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "fitSelection",
     value: function fitSelection(selectionSVGPointX, selectionSVGPointY, selectionWidth, selectionHeight) {
-      this.Viewer.fitSelection(selectionSVGPointX, selectionSVGPointY, selectionWidth, selectionHeight);
+      var SVGAlignX = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : ALIGN_LEFT;
+      var SVGAlignY = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : ALIGN_TOP;
+      this.Viewer.fitSelection(selectionSVGPointX, selectionSVGPointY, selectionWidth, selectionHeight, SVGAlignX, SVGAlignY);
     }
   }, {
     key: "fitToViewer",
-    value: function fitToViewer(SVGAlignX, SVGAlignY) {
+    value: function fitToViewer() {
+      var SVGAlignX = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ALIGN_LEFT;
+      var SVGAlignY = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ALIGN_TOP;
       this.Viewer.fitToViewer(SVGAlignX, SVGAlignY);
     }
   }, {

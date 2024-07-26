@@ -198,7 +198,9 @@ var ReactSVGPanZoom = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "fitSelection",
     value: function fitSelection(selectionSVGPointX, selectionSVGPointY, selectionWidth, selectionHeight) {
-      var nextValue = (0, _zoom2.fitSelection)(this.getValue(), selectionSVGPointX, selectionSVGPointY, selectionWidth, selectionHeight);
+      var SVGAlignX = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : _constants.ALIGN_LEFT;
+      var SVGAlignY = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : _constants.ALIGN_TOP;
+      var nextValue = (0, _zoom2.fitSelection)(this.getValue(), selectionSVGPointX, selectionSVGPointY, selectionWidth, selectionHeight, SVGAlignX, SVGAlignY);
       this.setValue(nextValue);
     }
   }, {
