@@ -733,12 +733,15 @@ function onMouseMove(event, ViewerDOM, tool, value, props) {
   return nextValue;
 }
 function onMouseUp(event, ViewerDOM, tool, value, props) {
+  var _props$toolbarProps;
   var coords = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
   var _ref3 = coords || getMousePosition(event, ViewerDOM),
     x = _ref3.x,
     y = _ref3.y;
   var nextValue = value;
   console.log("PROPS", props);
+  console.log("PROPS toolbar", props === null || props === void 0 ? void 0 : props.toolbarProps);
+  console.log("PROPS align", props === null || props === void 0 ? void 0 : (_props$toolbarProps = props.toolbarProps) === null || _props$toolbarProps === void 0 ? void 0 : _props$toolbarProps.SVGAlignX);
   switch (tool) {
     case _constants.TOOL_ZOOM_OUT:
       if (value.mode === _constants.MODE_ZOOMING) nextValue = (0, _zoom.stopZooming)(value, x, y, 1 / props.scaleFactor, props.toolbarProps.SVGAlignX, toolbarProps.SVGAlignY);
