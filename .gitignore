@@ -7,6 +7,7 @@ node_modules
 npm-debug.log
 .DS_Store
 bower_components
+build-website
 examples/*/yarn.lock
 examples/*/package-lock.json
 .cache
