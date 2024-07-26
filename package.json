@@ -8,6 +8,7 @@
   "unpkg": "./build-umd/react-svg-pan-zoom.min.js",
   "jsnext:main": "./build-es/index.js",
   "scripts": {
+    "prepare": "npm run build",
     "start": "npm run website:start",
     "build": "npm run clean && npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd_min",
     "test": "npm run test:coverage",

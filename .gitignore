@@ -9,6 +9,7 @@ npm-debug.log
 bower_components
 examples/*/yarn.lock
 examples/*/package-lock.json
+build-*
 .cache
 coverage
 .eslintcache
