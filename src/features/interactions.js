@@ -69,9 +69,6 @@ export function onMouseUp(event, ViewerDOM, tool, value, props, coords = null) {
   const {x, y} = coords || getMousePosition(event, ViewerDOM)
 
   let nextValue = value;
-  console.log("PROPS", props);
-  console.log("PROPS toolbar", props?.toolbarProps);
-  console.log("PROPS align", props?.toolbarProps?.SVGAlignX);
 
   switch (tool) {
     case TOOL_ZOOM_OUT:
