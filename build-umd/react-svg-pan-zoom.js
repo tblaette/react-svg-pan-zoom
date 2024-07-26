@@ -720,7 +720,7 @@ function onMouseMove(event, ViewerDOM, tool, value, props) {
   var nextValue = value;
   switch (tool) {
     case _constants.TOOL_ZOOM_IN:
-      if (value.mode === _constants.MODE_ZOOMING) nextValue = forceExit ? (0, _zoom.stopZooming)(value, x, y, props.scaleFactor, props) : (0, _zoom.updateZooming)(value, x, y);
+      if (value.mode === _constants.MODE_ZOOMING) nextValue = forceExit ? (0, _zoom.stopZooming)(value, x, y, props.scaleFactor, props.toolbarProps.SVGAlignX, toolbarProps.SVGAlignY) : (0, _zoom.updateZooming)(value, x, y);
       break;
     case _constants.TOOL_AUTO:
     case _constants.TOOL_PAN:
@@ -740,10 +740,10 @@ function onMouseUp(event, ViewerDOM, tool, value, props) {
   var nextValue = value;
   switch (tool) {
     case _constants.TOOL_ZOOM_OUT:
-      if (value.mode === _constants.MODE_ZOOMING) nextValue = (0, _zoom.stopZooming)(value, x, y, 1 / props.scaleFactor, props);
+      if (value.mode === _constants.MODE_ZOOMING) nextValue = (0, _zoom.stopZooming)(value, x, y, 1 / props.scaleFactor, props.toolbarProps.SVGAlignX, toolbarProps.SVGAlignY);
       break;
     case _constants.TOOL_ZOOM_IN:
-      if (value.mode === _constants.MODE_ZOOMING) nextValue = (0, _zoom.stopZooming)(value, x, y, props.scaleFactor, props);
+      if (value.mode === _constants.MODE_ZOOMING) nextValue = (0, _zoom.stopZooming)(value, x, y, props.scaleFactor, props.toolbarProps.SVGAlignX, toolbarProps.SVGAlignY);
       break;
     case _constants.TOOL_AUTO:
     case _constants.TOOL_PAN:
@@ -1167,7 +1167,7 @@ function updateZooming(value, viewerX, viewerY) {
     endY: viewerY
   });
 }
-function stopZooming(value, viewerX, viewerY, scaleFactor) {
+function stopZooming(value, viewerX, viewerY, scaleFactor, SVGAlignX, SVGAlignY) {
   var TOLERATED_DISTANCE = 7; //minimum distance to choose if area selection or drill down on point
   var startX = value.startX,
     startY = value.startY;
@@ -1175,7 +1175,7 @@ function stopZooming(value, viewerX, viewerY, scaleFactor) {
   var end = (0, _common.getSVGPoint)(value, viewerX, viewerY);
   if (Math.abs(startX - viewerX) > TOLERATED_DISTANCE && Math.abs(startY - viewerY) > TOLERATED_DISTANCE) {
     var box = (0, _calculateBox.default)(start, end);
-    return fitSelection(value, box.x, box.y, box.width, box.height);
+    return fitSelection(value, box.x, box.y, box.width, box.height, SVGAlignX, SVGAlignY);
   } else {
     var SVGPoint = (0, _common.getSVGPoint)(value, viewerX, viewerY);
     return zoom(value, SVGPoint.x, SVGPoint.y, scaleFactor);

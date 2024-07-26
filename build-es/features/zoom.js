@@ -164,7 +164,7 @@ export function updateZooming(value, viewerX, viewerY) {
     endY: viewerY
   });
 }
-export function stopZooming(value, viewerX, viewerY, scaleFactor) {
+export function stopZooming(value, viewerX, viewerY, scaleFactor, SVGAlignX, SVGAlignY) {
   var TOLERATED_DISTANCE = 7; //minimum distance to choose if area selection or drill down on point
   var startX = value.startX,
     startY = value.startY;
@@ -172,7 +172,7 @@ export function stopZooming(value, viewerX, viewerY, scaleFactor) {
   var end = getSVGPoint(value, viewerX, viewerY);
   if (Math.abs(startX - viewerX) > TOLERATED_DISTANCE && Math.abs(startY - viewerY) > TOLERATED_DISTANCE) {
     var box = calculateBox(start, end);
-    return fitSelection(value, box.x, box.y, box.width, box.height);
+    return fitSelection(value, box.x, box.y, box.width, box.height, SVGAlignX, SVGAlignY);
   } else {
     var SVGPoint = getSVGPoint(value, viewerX, viewerY);
     return zoom(value, SVGPoint.x, SVGPoint.y, scaleFactor);
